@@ -26,6 +26,8 @@ body {
   text-align: center;
   box-shadow: 0 15px 35px rgba(0,0,0,0.25);
   animation: fadeIn 1.2s ease;
+  position: relative;
+  z-index: 2;
 }
 
 h1 {
@@ -56,7 +58,6 @@ button:active {
   width: 100%;
   border-radius: 16px;
   margin-top: 15px;
-  animation: slideUp 1s ease;
 }
 
 .message {
@@ -82,27 +83,9 @@ button:active {
   font-size: 17px;
   opacity: 0;
   animation: fadeIn 2s ease forwards;
-  animation-delay: 8s;
+  animation-delay: 10s;
 }
 
-.forever {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #ff69b4;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Floating hearts */
 .heart {
   position: fixed;
   bottom: -20px;
@@ -110,6 +93,12 @@ button:active {
   animation: floatUp 6s linear forwards;
   pointer-events: none;
   opacity: 0.8;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes floatUp {
@@ -142,13 +131,6 @@ button:active {
       <img id="slide" src="photo1.jpg">
     </div>
 
-    <div class="message">
-      She makes me the happiest. She is perfect for me.
-      She is my everything. I like everything about her.
-      I just want her to stick around me.
-      I love her.
-    </div>
-
     <button onclick="showNote()">🎁 Surprise</button>
 
     <div id="loveNote" class="note hidden">
@@ -158,10 +140,6 @@ button:active {
 
     <button onclick="shareLove()">💌 Share this</button>
 
-    <div class="forever">
-      You & Me. Always. Forever. ♾️💗
-    </div>
-
   </div>
 
 </div>
@@ -169,7 +147,17 @@ button:active {
 <audio id="bg-music" src="song.mp3"></audio>
 
 <script>
-let photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg" "photo4.jpg", "photo5.jpg", "photo6.jpg","photo7.jpg","photo8.jpg","photo9.jpg",];
+let photos = let photos = [
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg",
+  "photo4.jpg",
+  "photo5.jpg",
+  "photo6.jpg",
+  "photo7.jpg",
+  "photo8.jpg",
+  "photo9.jpg"
+];
 let index = 0;
 let musicStarted = false;
 
@@ -192,4 +180,55 @@ function playMusic() {
 }
 
 function changePhoto() {
-  index = (index +
+  index = (index + 1) % photos.length;
+  document.getElementById("slide").src = photos[index];
+}
+
+function showNote() {
+  const note = document.getElementById("loveNote");
+  const textEl = document.getElementById("typedText");
+  note.classList.toggle("hidden");
+  textEl.innerHTML = "";
+  typeText(loveMessage, textEl);
+}
+
+function typeText(text, element) {
+  let i = 0;
+  const speed = 40;
+  function typing() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    }
+  }
+  typing();
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = Math.random() > 0.5 ? "💗" : "💙";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 7000);
+}
+
+function shareLove() {
+  if (navigator.share) {
+    navigator.share({
+      title: "For Daniya 💗",
+      text: "I made something special for you 💗",
+      url: window.location.href
+    });
+  } else {
+    alert("Copy this link and share it 💗");
+  }
+}
+
+document.addEventListener("click", playMusic, { once: true });
+</script>
+
+</body>
+</html>
