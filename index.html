@@ -1,213 +1,195 @@
-﻿<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>This is for Daniya</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }body {
+<meta charset="UTF-8">
+<title>For Daniya 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffb6c1, #add8e6);
   min-height: 100vh;
-  background: linear-gradient(135deg, #ffd6e8, #dbeafe);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  overflow-x: hidden;
 }
-
 
 .card {
-  background: rgba(255, 255, 255, 0.9);
+  background: white;
+  width: 90%;
   max-width: 420px;
-  width: 100%;
-  border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
+  padding: 30px;
+  border-radius: 22px;
   text-align: center;
-  animation: fadeIn 1.5s ease;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  animation: fadeIn 1.2s ease;
 }
 
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+h1 {
+  color: #ff69b4;
 }
 
-
-.header {
-  padding: 40px 20px 20px;
+button {
+  padding: 18px 32px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #ff69b4, #87cefa);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 18px;
 }
 
-
-.header h1 {
-  font-size: 32px;
-  color: #ec4899;
-  margin-bottom: 10px;
+button:active {
+  transform: scale(0.97);
 }
 
-
-.header p {
-  font-size: 16px;
-  color: #475569;
+.hidden {
+  display: none;
 }
-
-
-.message {
-  padding: 20px 30px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #334155;
-}
-
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  padding: 10px;
-}
-
 
 .gallery img {
   width: 100%;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-
-.footer {
-  padding: 25px 20px 35px;
-}
-
-
-.footer p {
-  font-size: 14px;
-  color: #475569;
-  margin-bottom: 10px;
-}
-
-
-.footer h2 {
-  font-size: 18px;
-  color: #ec4899;
-}
-
-
-.heart {
-  font-size: 22px;
-  animation: beat 1.2s infinite;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-
-@keyframes beat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-}
-  .surprise-btn {
-  background: linear-gradient(135deg, #f9a8d4, #bfdbfe);
-  border: none;
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-size: 15px;
-  color: #1e293b;
-  cursor: pointer;
-  margin-bottom: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-
-.surprise-btn:active {
-  transform: scale(0.96);
-}
-  .surprise-btn {
-  background: linear-gradient(135deg, #f9a8d4, #bfdbfe);
-  border: none;
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-size: 15px;
-  color: #1e293b;
-  cursor: pointer;
-  margin-bottom: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-
-.surprise-btn:active {
-  transform: scale(0.96);
-}
-
-
-.love-note {
-  display: none;
-  margin-top: 15px;
-  padding: 18px;
-  background: #fff0f6;
   border-radius: 16px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #334155;
-  animation: fadeIn 0.6s ease;
+  margin-top: 15px;
+  animation: slideUp 1s ease;
 }
 
+.message {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.note {
+  background: #fff0f5;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 15px;
+  font-size: 15px;
+  color: #444;
+}
+
+.forever-sign {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #ff69b4;
+  font-size: 17px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 8s;
+}
+
+.forever {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff69b4;
+}
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
-  </style>  <script>
-    function toggleNote() {
-      const note = document.getElementById('love-note');
-      note.style.display = note.style.display === 'block' ? 'none' : 'block';
-    }
-  </script></head>
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 18px;
+  animation: floatUp 6s linear forwards;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
 <body>
-  <div class="card">
-    <div class="header">
-      <h1>This is for Daniya</h1>
-      <p>Just something from my heart to yours</p>
-    </div><div class="message">Daniya, you make me the happiest. For me, you are perfect in every way and you mean more to me than I can ever explain. I love everything about you, the way you are, just you. Being with you feels right, and all I want is for you to stay by my side. I love you.</div>
 
+<div class="card">
 
-<div class="gallery">
-  <!-- Replace these image links with your own photos -->
-  <img src="photo1.jpg" />
-  <img src="photo2.jpg" />
-  <img src="photo3.jpg" />
-  <img src="photo4.jpg" />
-  <img src="photo5.jpg" />
-  <img src="photo6.jpg" />
-    <img src="photo6.jpg" />
-    <img src="photo7.jpg" />
-    <img src="photo8.jpg" />
-    <img src="photo9.jpg" />
-</div>
+  <!-- INTRO -->
+  <div id="intro">
+    <h1>This is for Daniya 💗</h1>
+    <button onclick="startSurprise()">Tap here Daniya 💗</button>
+  </div>
 
+  <!-- CONTENT -->
+  <div id="content" class="hidden">
 
-<div class="footer">
-  <button class="surprise-btn" onclick="toggleNote()">Tap here Daniya 💗</button>
-  <div id="love-note" class="love-note">Daniya, you are my everything. You make my days better just by being in them. I don’t want anything fancy from life, I just want you to stick around me. No matter what happens, my feelings for you will always stay the same. I love you, truly.</div>
-  <p>With all my love</p>
-  <h2>With you, today, tomorrow, and always</h2>
-  <div class="heart">❤</div>
-</div>
+    <div class="gallery">
+      <img id="slide" src="photo1.jpg">
+    </div>
 
+    <div class="message">
+      She makes me the happiest. She is perfect for me.
+      She is my everything. I like everything about her.
+      I just want her to stick around me.
+      I love her.
+    </div>
+
+    <button onclick="showNote()">🎁 Surprise</button>
+
+    <div id="loveNote" class="note hidden">
+      <span id="typedText"></span>
+      <div class="forever-sign">Forever yours ❤️</div>
+    </div>
+
+    <button onclick="shareLove()">💌 Share this</button>
+
+    <div class="forever">
+      You & Me. Always. Forever. ♾️💗
+    </div>
 
   </div>
-  <audio controls autoplay loop style="width:100%; margin-top:10px;">
-    <source src="Abeer_Nehme_-_Bi_Saraha___عبير_نعمة_-_بصراحة(256k).mp3" type="audio/mpeg">
-    Your browser does not suppo
-    
+
+</div>
+
+<audio id="bg-music" src="song.mp3"></audio>
+
+<script>
+let photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg" "photo4.jpg", "photo5.jpg", "photo6.jpg","photo7.jpg","photo8.jpg","photo9.jpg",];
+let index = 0;
+let musicStarted = false;
+
+const loveMessage =
+"Daniya, I don’t even know where to start because words feel too small for what I feel for you. You came into my life quietly, but somehow you became the most important part of it. With you, even ordinary moments feel special, and even silence feels comfortable. You make me feel understood, valued, and loved in ways I never knew I needed. I love the way you are, your smile, your mood swings, your care, your imperfections, everything. You make me want to be better, not because you ask me to, but because loving you makes me want to grow. No matter what happens, I want you to know that my heart chooses you, again and again. I don’t just want moments with you, I want a lifetime. Through good days, bad days, distance, fights, laughter, and dreams, I want it all with you. You are not just someone I love, you are my home, my peace, my forever.";
+
+function startSurprise() {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("content").classList.remove("hidden");
+  playMusic();
+  setInterval(changePhoto, 3000);
+  setInterval(createHeart, 500);
+}
+
+function playMusic() {
+  if (!musicStarted) {
+    document.getElementById("bg-music").play();
+    musicStarted = true;
+  }
+}
+
+function changePhoto() {
+  index = (index +
