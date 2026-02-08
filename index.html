@@ -72,7 +72,7 @@ button:active {
   padding: 15px;
   border-radius: 15px;
   margin-top: 15px;
-  font-size: 15px;
+  font-size: clamp(14px, 4vw, 16px);
   color: #444;
 }
 
@@ -121,7 +121,7 @@ button:active {
   <!-- INTRO -->
   <div id="intro">
     <h1>This is for Daniya 💗</h1>
-    <button onclick="startSurprise()">Tap here Daniya 💗</button>
+    <button id="startBtn">Tap here Daniya 💗</button>
   </div>
 
   <!-- CONTENT -->
@@ -131,23 +131,23 @@ button:active {
       <img id="slide" src="photo1.jpg">
     </div>
 
-    <button onclick="showNote()">🎁 Surprise</button>
+    <button id="noteBtn">🎁 Surprise</button>
 
     <div id="loveNote" class="note hidden">
       <span id="typedText"></span>
       <div class="forever-sign">Forever yours ❤️</div>
     </div>
 
-    <button onclick="shareLove()">💌 Share this</button>
+    <button id="shareBtn">💌 Share this</button>
 
   </div>
 
 </div>
 
-<audio id="bg-music" src="song.mp3"></audio>
+<audio id="bg-music" src="song.mp3" loop></audio>
 
 <script>
-let photos = let photos = [
+const photos = [
   "photo1.jpg",
   "photo2.jpg",
   "photo3.jpg",
@@ -159,24 +159,27 @@ let photos = let photos = [
   "photo9.jpg"
 ];
 let index = 0;
-let musicStarted = false;
 
-const loveMessage =
-"Daniya, I don’t even know where to start because words feel too small for what I feel for you. You came into my life quietly, but somehow you became the most important part of it. With you, even ordinary moments feel special, and even silence feels comfortable. You make me feel understood, valued, and loved in ways I never knew I needed. I love the way you are, your smile, your mood swings, your care, your imperfections, everything. You make me want to be better, not because you ask me to, but because loving you makes me want to grow. No matter what happens, I want you to know that my heart chooses you, again and again. I don’t just want moments with you, I want a lifetime. Through good days, bad days, distance, fights, laughter, and dreams, I want it all with you. You are not just someone I love, you are my home, my peace, my forever.";
+// Preload images
+photos.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
+
+const loveMessage = "Daniya, I don’t even know where to start because words feel too small for what I feel for you. You came into my life quietly, but somehow you became the most important part of it. With you, even ordinary moments feel special, and even silence feels comfortable. You make me feel understood, valued, and loved in ways I never knew I needed. I love the way you are, your smile, your mood swings, your care, your imperfections, everything. You make me want to be better, not because you ask me to, but because loving you makes me want to grow. No matter what happens, I want you to know that my heart chooses you, again and again. I don’t just want moments with you, I want a lifetime. Through good days, bad days, distance, fights, laughter, and dreams, I want it all with you. You are not just someone I love, you are my home, my peace, my forever.";
 
 function startSurprise() {
+  // Hide intro and show content
   document.getElementById("intro").style.display = "none";
   document.getElementById("content").classList.remove("hidden");
-  playMusic();
+
+  // Start slideshow and hearts
   setInterval(changePhoto, 3000);
   setInterval(createHeart, 500);
-}
 
-function playMusic() {
-  if (!musicStarted) {
-    document.getElementById("bg-music").play();
-    musicStarted = true;
-  }
+  // Play music
+  const music = document.getElementById("bg-music");
+  music.play().catch(err => console.log("Music autoplay blocked", err));
 }
 
 function changePhoto() {
@@ -227,7 +230,10 @@ function shareLove() {
   }
 }
 
-document.addEventListener("click", playMusic, { once: true });
+// Event listeners
+document.getElementById("startBtn").addEventListener("click", startSurprise);
+document.getElementById("noteBtn").addEventListener("click", showNote);
+document.getElementById("shareBtn").addEventListener("click", shareLove);
 </script>
 
 </body>
