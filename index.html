@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>This is for Daniya</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffd6e8, #dbeafe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  max-width: 420px;
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.header {
+  padding: 40px 20px 20px;
+}
+
+
+.header h1 {
+  font-size: 32px;
+  color: #ec4899;
+  margin-bottom: 10px;
+}
+
+
+.header p {
+  font-size: 16px;
+  color: #475569;
+}
+
+
+.message {
+  padding: 20px 30px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #334155;
+}
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 10px;
+}
+
+
+.gallery img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+
+.footer {
+  padding: 25px 20px 35px;
+}
+
+
+.footer p {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+
+.footer h2 {
+  font-size: 18px;
+  color: #ec4899;
+}
+
+
+.heart {
+  font-size: 22px;
+  animation: beat 1.2s infinite;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+  .surprise-btn {
+  background: linear-gradient(135deg, #f9a8d4, #bfdbfe);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  color: #1e293b;
+  cursor: pointer;
+  margin-bottom: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+.surprise-btn:active {
+  transform: scale(0.96);
+}
+  .surprise-btn {
+  background: linear-gradient(135deg, #f9a8d4, #bfdbfe);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  color: #1e293b;
+  cursor: pointer;
+  margin-bottom: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+.surprise-btn:active {
+  transform: scale(0.96);
+}
+
+
+.love-note {
+  display: none;
+  margin-top: 15px;
+  padding: 18px;
+  background: #fff0f6;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+  animation: fadeIn 0.6s ease;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+  </style>  <script>
+    function toggleNote() {
+      const note = document.getElementById('love-note');
+      note.style.display = note.style.display === 'block' ? 'none' : 'block';
+    }
+  </script></head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1>This is for Daniya</h1>
+      <p>Just something from my heart to yours</p>
+    </div><div class="message">Daniya, you make me the happiest. For me, you are perfect in every way and you mean more to me than I can ever explain. I love everything about you, the way you are, just you. Being with you feels right, and all I want is for you to stay by my side. I love you.</div>
+
+
+<div class="gallery">
+  <!-- Replace these image links with your own photos -->
+  <img src="https://via.placeholder.com/150" alt="Memory 1" />
+  <img src="https://via.placeholder.com/150" alt="Memory 2" />
+  <img src="https://via.placeholder.com/150" alt="Memory 3" />
+  <img src="https://via.placeholder.com/150" alt="Memory 4" />
+  <img src="https://via.placeholder.com/150" alt="Memory 5" />
+  <img src="https://via.placeholder.com/150" alt="Memory 6" />
+</div>
+
+
+<div class="footer">
+  <button class="surprise-btn" onclick="toggleNote()">Tap here Daniya 💗</button>
+  <div id="love-note" class="love-note">Daniya, you are my everything. You make my days better just by being in them. I don’t want anything fancy from life, I just want you to stick around me. No matter what happens, my feelings for you will always stay the same. I love you, truly.</div>
+  <p>With all my love</p>
+  <h2>With you, today, tomorrow, and always</h2>
+  <div class="heart">❤</div>
+</div>
+
+
+  </div>
+  <audio controls autoplay loop style="width:100%; margin-top:10px;">
+    <source src="Abeer_Nehme_-_Bi_Saraha___عبير_نعمة_-_بصراحة(256k).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</body>
+</html>
